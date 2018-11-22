@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once './commoms/utils.php';
 if($_SERVER['REQUEST_METHOD'] != 'GET'){
 	header('location: ' . $siteurl);

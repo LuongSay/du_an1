@@ -5,21 +5,28 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 	die;
 }
 $id = $_POST['id'];
-$name = $_POST['name'];
-$description = $_POST['description'];
-if(!$name){
-	header('location: ' . $adminUrl . 'danh-muc/save-edit.php?errName=Vui lòng nhập tên danh mục');
-	die;
+$sql = "select * from categories WHERE id='$id'";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$cates= $stmt->fetch();
+
+$img = $_FILES['image1'];
+$image = $_POST['image'];
+var_dump($image);
+$ext = pathinfo($img['name'],PATHINFO_EXTENSION);
+$filename = 'public/img/'.uniqid().'.'.$ext;
+move_uploaded_file($img['tmp_name'], '../../'.$filename);
+
+if ($img['name'] == "") {
+	$filename = $image;
 }
-$sql = "update " . TABLE_CATEGORY . " 
-		set
-			name = :name,
-			description = :description
-			where id = :id";
+$sql = "update " . TABLE_CATEGORY . "
+set
+name = :name,
+image = '$filename' where id = :id";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(":name", $name, PDO::PARAM_STR);
-$stmt->bindParam(":description", $description, PDO::PARAM_STR);
 $stmt->bindParam(":id", $id, PDO::PARAM_STR);
 $stmt->execute();
 header('location: ' . $adminUrl . 'danh-muc?success=true');
- ?>
+?>

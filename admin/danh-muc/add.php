@@ -47,7 +47,7 @@ $cates = $stmt->fetchAll();
 			<section class="content">
 				<div class="row">
 					<div class="col-md-6">
-						<form action="<?= $adminUrl ?>danh-muc/save-add.php" method="post" id="form">
+						<form enctype="multipart/form-data" action="<?= $adminUrl ?>danh-muc/save-add.php" method="post" id="form">
 							<?php 
 							if(isset($_GET['msg2']) && $_GET['msg2'] != ""){
 								?>
@@ -59,8 +59,8 @@ $cates = $stmt->fetchAll();
 								<input type="text" name="name" class="form-control">
 							</div>
 							<div class="form-group">
-								<label>Mô tả</label>
-								<textarea name="desc" class="form-control" rows="5"></textarea>
+								<label>Ảnh sản phẩm</label>
+								<input type="file" id="product_image" name="image" class="form-control required" accept="image/*">
 							</div>
 							<div class="text-center">
 								<a href="<?= $adminUrl?>danh-muc" class="btn btn-danger btn-xs">Huỷ</a>
@@ -93,7 +93,7 @@ $cates = $stmt->fetchAll();
 						required: true,
 						
 					},
-					"desc": {
+					"image": {
 						required: true,
 					},
 					
@@ -103,8 +103,8 @@ $cates = $stmt->fetchAll();
 						required: "<p class='mb-0' style='color: red;'>Bạn cần nhập tên danh mục !!!</p>",
 						
 					},
-					"desc": {
-						required: "<p class='mb-0' style='color: red;'>Bạn cần điền mô tả !!!</p>"
+					"image": {
+						required: "<p class='mb-0' style='color: red;'>Bạn cần chọn ảnh !!!</p>"
 					},
 					
 				}

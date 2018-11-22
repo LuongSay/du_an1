@@ -7,7 +7,6 @@ $stmt->execute();
 $products = $stmt->fetchAll();
 
 $id = $_GET['id'];
-
 // kiem tra xem id sp nay co trong phan products hay khong ?
 $item = false;
 foreach ($products as $pro) {

@@ -1,41 +1,31 @@
 <?php
 session_start();
 require_once './commoms/utils.php';
- ?>
+?>
 <!DOCTYPE html>
 <html>
 <head>
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="<?= $siteUrl ?>post-login.php"><img src="<?= $siteUrl?>public/img/logo.png" width="70px"></a>
-  </div>
-  <!-- /.login-logo -->
-    <form action="post-login.php" method="post">
-      <div class="form-control has-feedback">
-        <input type="email" class="form-control" name="email" placeholder="Email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
-      <div class="form-control has-feedback">
-        <input type="password" class="form-control" name="password" placeholder="Password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <!-- /.col -->
-        <div class="col-xs-4">
+<body>
+  <div class="container" style="margin-top: 10%;margin-left: 40%">
+    <div class="col-lg-4 text-center">
+      <a href="<?= $siteUrl ?>post-login.php"><img src="<?= $siteUrl?>public/img/logo.png"></a>
+
+      <!-- /.login-logo -->
+      <form action="post-login.php" method="post">
+        <input type="email" class="form-control mt-3" name="email" placeholder="Email">
+        <input type="password" class="form-control mt-3 mb-3" name="password" placeholder="Password">
+
+
+        <div class="">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
         </div>
-        <!-- /.col -->
-      </div>
-    </form>
-
-  
+      </form>
+    </div>
   </div>
-  <!-- /.login-box-body -->
-</div>
-<!-- /.login-box -->
+
+
 
 </body>
 </html>

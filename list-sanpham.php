@@ -14,7 +14,7 @@ $products = $stmt->fetchAll();
 ?>
 <?php foreach ($products as $key): ?>
 	<?php
-	$detail = substr($key['detail'],0,100);
+	$detail = mb_substr($key['detail'],0,100);
 	?>
 	<div class="col-lg-3 col-md-6 col-sm-6 col-6">
 		<a href="chi-tiet-sp.php?id=<?= $key['id'] ?>">
@@ -31,6 +31,5 @@ $products = $stmt->fetchAll();
 
 			</div></a>
 		</div>
-
 	<?php endforeach ?>
 

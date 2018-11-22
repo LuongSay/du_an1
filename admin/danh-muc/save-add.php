@@ -16,13 +16,15 @@ if ($cates != false) {
 	die;
 }
 
-$desc = $_POST['desc'];
-$sql = "insert into " . TABLE_CATEGORY . " 
-		values
-			(null, :name, :desc)";
+$img = $_FILES['image'];
+$ext = pathinfo($img['name'],PATHINFO_EXTENSION);
+$filename = 'public/img/'.uniqid().'.'.$ext;
+move_uploaded_file($img['tmp_name'], '../../'.$filename);
+$sql = "insert into " . TABLE_CATEGORY . "
+(name,image)
+values
+('$name','$filename')";
 $stmt = $conn->prepare($sql);
-$stmt->bindParam(":name", $name, PDO::PARAM_STR);
-$stmt->bindParam(":desc", $desc, PDO::PARAM_STR);
 $stmt->execute();
 header('location: ' . $adminUrl . 'danh-muc?success=true');
- ?>
+?>

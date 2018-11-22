@@ -180,7 +180,7 @@ $web_settings = $stmt->fetch();
 								</div>
 								<div class="col-md-6">
 									<a href="chi-tiet-sp.php?id=<?= $key['id'] ?>"><h5 class="pb-3" style="font-size: 17px;color: black"><?= $key['product_name'] ?></h5></a>
-									<a><?= $key['list_price'] ?>,000đ</a>
+									<a><?= $key['list_price'] ?>đ</a>
 								</div>
 							</div>
 						<?php endforeach ?>

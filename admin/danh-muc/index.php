@@ -59,6 +59,7 @@ $cates = $stmt->fetchAll();
 								<tbody><tr>
 									<th style="width: 10px">ID</th>
 									<th>Tên danh mục</th>
+									<th>Ảnh danh mục</th>
 									<th>Sản phẩm</th>
 									<th width="300">Mô tả</th>
 									<th><a href="<?= $adminUrl?>danh-muc/add.php" class="btn btn-sm btn-succer">
@@ -69,6 +70,7 @@ $cates = $stmt->fetchAll();
 									<tr>
 										<td><?= $c['id']  ?></td>
 										<td><?= $c['name']  ?></td>
+										<td><img src="<?= $siteUrl ?><?= $c['image']?>" style="width: 100px"></td>
 										<td>
 											<?= $c['totalProduct']  ?>
 										</td>

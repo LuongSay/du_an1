@@ -6,6 +6,9 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] == null) {
   header('location: '.$siteUrl.'login.php');
   die;
 }
+if ($_SESSION['login']['role']<300) {
+    header('location:'.'../index.php');
+  }
 //dem tong so repory trong bang danh muc;
 $sql = "select count(*) as total from ".TABLE_CATEGORY;
 $stsm = $conn->prepare($sql);

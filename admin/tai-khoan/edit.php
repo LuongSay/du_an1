@@ -47,6 +47,12 @@ $users = $stmt->fetch();
       <div class="row">
         <form action="<?= $adminUrl?>/tai-khoan/save_edit.php" method="post" id="form">
           <input type="hidden" name="id" value="<?= $users['id'] ?>">
+            <?php 
+              if(isset($_GET['msg1']) && $_GET['msg1'] != ""){
+               ?>
+               <span class="text-danger"> | <?= $_GET['msg1'] ?></span>
+              <?php } 
+              ?>
           <div class="col-md-6">
             <div class="form-group">
               <label>Email</label>

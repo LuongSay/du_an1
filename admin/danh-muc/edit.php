@@ -48,8 +48,9 @@ if (!$cate) {
 			<section class="content">
 				<div class="row">
 					<div class="col-md-6">
-						<form action="<?= $adminUrl ?>danh-muc/save-edit.php" method="post" id="form">
+						<form enctype="multipart/form-data" action="<?= $adminUrl ?>danh-muc/save-edit.php" method="post" id="form">
 							<input type="hidden" name="id" value="<?= $cate['id'] ?>">
+							<input type="hidden" name="image" value="<?= $cate['image'] ?>">
 							<div class="form-group">
 								<label>Tên danh mục</label>
 								<input type="text" name="name" class="form-control" value="<?= $cate['name'] ?>"> 
@@ -59,9 +60,10 @@ if (!$cate) {
 								?>
 								<span class="text-danger"><?= $_GET['errName'] ?></span>
 							<?php } ?>
+							<img id="imageTarget" src="<?= $siteUrl?>/<?= $cate['image']?>" class="img-responsive" >
 							<div class="form-group">
-								<label>Mô tả</label>
-								<textarea name="description" class="form-control" rows="5" ><?= $cate['description']?></textarea>
+								<label>Ảnh sản phẩm</label>
+								<input type="file" id="product_image" name="image1" class="form-control" accept="image/*">
 							</div>
 							<div class="text-center">
 								<a href="<?= $adminUrl?>danh-muc" class="btn btn-danger btn-xs">Huỷ</a>
@@ -93,19 +95,14 @@ if (!$cate) {
 						required: true,
 						
 					},
-					"desc": {
-						required: true,
-					},
-					
+				
 				},
 				messages: {
 					"name": {
 						required: "<p class='mb-0' style='color: red;'>Bạn cần nhập tên danh mục !!!</p>",
 						
 					},
-					"desc": {
-						required: "<p class='mb-0' style='color: red;'>Bạn cần điền mô tả !!!</p>"
-					},
+					
 					
 				}
 			});

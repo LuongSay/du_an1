@@ -129,19 +129,10 @@ $stsm->execute();
 					?>
 				</small></p>
 				<hr>
-				<div class="form-group">
-					<label>Số Lượng </label>
-					<div class="input-group">
-						<div class="input-group-btn">
-							<button id="down" class="btn btn-default" onclick=" down('0')"><span class="glyphicon glyphicon-minus">-</span></button>
-						</div>
-						<input type="text" id="myNumber" class="form-control input-number text-center" value="1" />
-						<div class="input-group-btn">
-							<button id="up" class="btn btn-default" onclick="up('10')"><span class="glyphicon glyphicon-plus"></span>+</button>
-						</div>
-					</div>
-				</div>
-				<button type="button" class="btn btn-success mt-5">Thêm vào giỏ</button>
+				
+					<a href="save-cart.php?id=<?= $product['id'] ?>"><button type="button" class="btn btn-success mt-5">Thêm vào giỏ</button></a>
+			
+				
 			</div>
 		</div>
 		<div class="row pt-5 pb-5">
