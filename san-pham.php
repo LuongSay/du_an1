@@ -23,7 +23,7 @@ $products = $stmt->fetchAll();
 	<title>Sản phẩm</title>
 	<?php include './share/client_asset.php'; ?>
 	<link rel="stylesheet" type="text/css" href="./plugins/simplePagination/simplePagination.css">
-	 <script type="text/javascript" src="./plugins/simplePagination/jquery.simplePagination.js"></script>
+	<script type="text/javascript" src="./plugins/simplePagination/jquery.simplePagination.js"></script>
 	<style type="text/css">
 	.select select option{
 		font-size: 12px;
@@ -47,19 +47,22 @@ $products = $stmt->fetchAll();
 				<div class="row d-flex justify-content-end">
 					<div class="col-md-2 toolbar1 pull-right select">
 						<select id="input-sort" class="form-control" style="font-size: 13px" onchange="location = this.value;" >
-							<option value="/hoa-qua?sort=p.date_added&amp;order=DESC" selected="selected">Mặc định</option> 
-							<option value="/hoa-qua?sort=pd.name&amp;order=ASC">Tên (A - Z)</option> 
-							<option value="/hoa-qua?sort=pd.name&amp;order=DESC">Tên (Z - A)</option> 
-							<option value="/hoa-qua?sort=p.price&amp;order=ASC">Giá (Thấp &gt; Cao)</option> 
-							<option value="/hoa-qua?sort=p.price&amp;order=DESC">Giá (Cao &gt; Thấp)</option> 
+							<option value="" selected="selected">Sắp xếp</option> 
+							<option value="san-pham.php?order=ASC">
+								Giá (Thấp &gt; Cao)
+							</option> 
+							<option value="san-pham.php?order=DESC">
+								Giá (Cao &gt; Thấp)
+							</option> 
 						</select>
 					</div>
 					<div class="col-md-2 toolbar2 pull-right select">
 						<select id="input-limit" class="form-control" style="font-size: 13px" onchange="location = this.value;">
-							<option value="/hoa-qua?limit=9" selected="selected">9</option> <option value="/hoa-qua?limit=25">25</option>
-							<option value="/hoa-qua?limit=50">50</option>
-							<option value="/hoa-qua?limit=75">75</option>
-							<option value="/hoa-qua?limit=100">100</option> 
+							<option value="" selected="selected">Hiển thị</option> 
+							<option value="san-pham.php?limit=5">5</option>
+							<option value="san-pham.php?limit=10">10</option>
+							<option value="san-pham.php?limit=15">15</option>
+							<option value="san-pham.php?limit=20">20</option> 
 						</select>
 					</div>
 				</div>

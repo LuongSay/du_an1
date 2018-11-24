@@ -254,7 +254,7 @@ $user= $stmt->fetch();
 	          <!-- Menu Footer-->
 	          <li class="user-footer">
 	            <div class="pull-left">
-	              <a href="<?= $adminUrl?>profile" class="btn btn-default btn-flat">Profile</a>
+	              <a href="<?= $siteUrl?>" class="btn btn-default btn-flat">HOME WEBSITE</a>
 	            </div>
 	            <div class="pull-right">
 	              <a href="<?= $siteUrl?>logout.php" class="btn btn-default btn-flat">Sign out</a>

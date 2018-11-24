@@ -12,8 +12,21 @@ if (isset($_GET['cate_id'])) {
 	$stmt = $conn->prepare($sql);
 	$stmt->execute();
 	$products= $stmt->fetchAll();
+};
+if (isset($_GET['order'])) {
+	$order = $_GET['order'];
+	$sql = "SELECT * FROM products ORDER BY list_price ".$order."";
+	$stmt = $conn->prepare($sql);
+	$stmt->execute();
+	$products= $stmt->fetchAll();
 }
-
+if (isset($_GET['limit'])) {
+	$limit =$_GET['limit'];
+	$sql = "SELECT * FROM products LIMIT ".$limit."";
+	$stmt = $conn->prepare($sql);
+	$stmt->execute();
+	$products= $stmt->fetchAll();
+}
 ?>
 
 <div class="row product pt-5">

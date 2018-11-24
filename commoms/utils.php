@@ -7,6 +7,7 @@ $siteUrl = "http://localhost/Leaning-PHP/du_an1/";
 $adminUrl = "http://localhost/Leaning-PHP/du_an1/admin/";
 $adminAssetUrl = "http://localhost/Leaning-PHP/du_an1/admin/adminlte/";
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8","$dbusername",$dbpwd);
+$conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 define('TABLE_CATEGORY','categories');
 define('TABLE_SLIDESHOW','slideshows');
 define('TABLE_PRODUCT','products');
