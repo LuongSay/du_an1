@@ -11,13 +11,14 @@ $stsm = $conn->prepare($sql);
 $stsm->execute();
 $users = $stsm->fetch();
 
+$role = $users['role'];
 if (!$users) {
 	header('location: '. $adminUrl. "tai-khoan");
 	die;
 }
 
 $idS = $_SESSION['login']['id'];
-$role  = $_SESSION['login']['role'];
+
 if ($idS != $id && $role < 500) {
 	$sql ="DELETE FROM users WHERE id = '$id'";
 };

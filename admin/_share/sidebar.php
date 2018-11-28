@@ -162,6 +162,21 @@ $user= $stmt->fetch();
           </li>
         </ul>
       </li>
+      <li class="treeview">
+        <a href="#">
+            <i class="fa fa-list"></i><span>Đơn hàng</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="">
+            <a href="<?= $adminUrl?>cart">
+              <i class="fa fa-circle-o"></i> Danh sách
+            </a>
+          </li>
+        </ul>
+      </li>
     </ul>
   </section>
   <!-- /.sidebar -->

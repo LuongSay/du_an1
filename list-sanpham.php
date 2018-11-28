@@ -26,7 +26,7 @@ $products = $stmt->fetchAll();
 					<p class="card-text" style="width: 100%;height: 80px;"><?= $detail ?>...</p>
 					<a href="chi-tiet-sp.php?id=<?= $key['id'] ?>" class="text-center"><h5><?= $key['product_name'] ?></h5></a>
 					<p class="card-text"><small class="text-muted"><?= $key['list_price']?> đ</small></p>
-					<a href="save-cart.php?id=<?= $key['id']?>"><button type="button" class="btn btn-outline-success"><i class="fas fa-shopping-bag"></i></button></a>
+					<a href="save-cart.php?id=<?= $key['id']?>" style="padding-left: 9%"><button type="button" class="btn btn-outline-success"><i class="fas fa-shopping-bag"></i></button></a>
 				</div>
 			</div>
 		</a>

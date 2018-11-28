@@ -9,7 +9,7 @@ $pageNumber = isset($_GET['page']) == true ? $_GET['page'] : 1;
 $pageSize = 8;
 $offset = ($pageNumber-1)*$pageSize;
 $search = $_GET['search'];
-$sql = "select * from products where product_name like '%$search%' limit $offset, $pageSize ";
+$sql = "select * from products where product_name like '%$search%'";
 $stmt =$conn->prepare($sql);
 $stmt->execute();
 $searchp = $stmt->fetchAll();
@@ -52,7 +52,7 @@ $searchp2 = $stmt->fetch();
 									<div class="card-body text-center" style="width: 100%;height: 210px;overflow: hidden;">
 
 										<a href="chi-tiet-sp.php?id=<?= $key['id'] ?>" class="text-center"><h5><?= $key['product_name'] ?></h5></a>
-										<p class="card-text"><small class="text-muted"><?= $key['list_price']?>,000đ</small></p>
+										<p class="card-text"><small class="text-muted"><?= $key['list_price']?> đ</small></p>
 										<button type="button" class="btn btn-outline-success"><i class="fas fa-shopping-bag"></i></button>
 									</div>
 

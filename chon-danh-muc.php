@@ -1,6 +1,6 @@
 <?php 
 require_once './commoms/utils.php';
-
+// hiển thị danh mục nếu có cate id
 if (isset($_GET['cate_id'])) {
 	$id = $_GET['cate_id'];
 	$sql = "SELECT * FROM products where cate_id = '$id'";
@@ -13,14 +13,35 @@ if (isset($_GET['cate_id'])) {
 	$stmt->execute();
 	$products= $stmt->fetchAll();
 };
-if (isset($_GET['order'])) {
+
+// hiển thị sắp xếp nếu chọn danh mục
+if (isset($_GET['order']) && isset($_GET['cate_id'])) {
+	$id = $_GET['cate_id'];
+	$order = $_GET['order'];
+	$sql = "SELECT * FROM products where cate_id = '$id' ORDER BY list_price ".$order."";
+	$stmt = $conn->prepare($sql);
+	$stmt->execute();
+	$products= $stmt->fetchAll();
+};
+//hiển thị sắp nếu không chọn danh mục
+if (isset($_GET['order']) && !isset($_GET['cate_id'])) {
 	$order = $_GET['order'];
 	$sql = "SELECT * FROM products ORDER BY list_price ".$order."";
 	$stmt = $conn->prepare($sql);
 	$stmt->execute();
 	$products= $stmt->fetchAll();
-}
-if (isset($_GET['limit'])) {
+};
+// hiển thị limit nếu có chọn danh mục
+if (isset($_GET['limit']) && isset($_GET['cate_id'])) {
+	$id = $_GET['cate_id'];
+	$limit =$_GET['limit'];
+	$sql = "SELECT * FROM products where cate_id = '$id' LIMIT ".$limit."";
+	$stmt = $conn->prepare($sql);
+	$stmt->execute();
+	$products= $stmt->fetchAll();
+};
+// hiển thị limit nếu không chọn danh mục
+if (isset($_GET['limit']) && !isset($_GET['cate_id'])) {
 	$limit =$_GET['limit'];
 	$sql = "SELECT * FROM products LIMIT ".$limit."";
 	$stmt = $conn->prepare($sql);

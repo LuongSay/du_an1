@@ -1,12 +1,17 @@
 <?php 
 session_start();
-require_once './commoms/utils.php';
-$id = $_GET['id'];
+require_once '../commoms/utils.php';
+if($_SERVER['REQUEST_METHOD'] != 'GET'){
+	header('location: '.$siteUrl.'detail-cart.php');
+	die;
+}
 $sql = "SELECT * FROM products";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $products = $stmt->fetchAll();
+date_default_timezone_set("Asia/Ho_Chi_Minh");
 
+$id = $_GET['id'];
 // kiem tra xem id sp nay co trong phan products hay khong ?
 $item = false;
 foreach ($products as $pro) {
@@ -39,10 +44,17 @@ if(count($cart) == 0){
 		array_push($cart, $item);
 	}else{
 		// flag != -1 ==> sp co trong gio hang
-		$cart[$flag]['quantity']++;
+		$qty = $cart[$flag]['quantity']++;
+		if ($qty > 4) {
+			header('location: '.$siteUrl.'detail-cart.php');
+			die;
+		}else{
+			$cart[$flag]['quantity']+1;
+		}
 	}
 }
 
 $_SESSION['CART'] = $cart;
-header('location: '.$_SERVER['HTTP_REFERER']);
+header('location: '.$siteUrl.'detail-cart.php');
+
  ?>

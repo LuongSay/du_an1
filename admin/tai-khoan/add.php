@@ -119,7 +119,12 @@ checkLogin(USER_ROLES['admin']);
                     required: true,
                     minlength:2,
                 },
-               
+               "sdt": {
+                    required: true,
+                   minlength:10,
+                   maxlength:11,
+          
+                },
                 
                 "password":{
                     required: true,
@@ -141,6 +146,12 @@ checkLogin(USER_ROLES['admin']);
                 "fullname":{
                     required: "<p class='mb-0' style='color: red;'>Vui lòng điền tên</p>",
                     minlength: "<p class='mb-0' style='color: red;'>Độ dài ít nhất 2 kí tự</p>",
+                },
+                "sdt": {
+                    required: "<p class='mb-0' style='color: red;'>Vui lòng nhập số điện thoại</p>",
+                   minlength:"<p class='mb-0' style='color: red;'>Độ dài từ 10 đến 11 kí tự</p>",
+                   maxlength:"<p class='mb-0' style='color: red;'>Độ dài từ 10 đến 11 kí tự</p>",
+          
                 },
                 
                 "password":{

@@ -77,7 +77,7 @@ $countproduct = $stmt->fetch();
                   <th>Game</th>
                   <th width="300">Mô tả</th>
                   <th>Giá</th>
-                  <th>Giá giảm</th>
+                  
                   <th>Ảnh sản phẩm</th>
                   <th>Tình trạng</th>
                   <th>Lượt xem</th>
@@ -95,7 +95,6 @@ $countproduct = $stmt->fetch();
                       <td><div style="overflow: scroll;width: 250px;height: 170px"><?= $c['detail'] ?></div></td>
                       <td style=><?= $c['list_price'] ?>$</td>
 
-                      <td><?= $c['sell_price'] ?>$</td>
                       <td
                       ><img src="<?= $siteUrl.$c['image']?>" width="250px" height="150px"></td>
                       <td> <?php 
