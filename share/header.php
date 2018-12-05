@@ -22,9 +22,6 @@ foreach ($cart as $pro) {
 }
 }
 
-
-
-
 ?>
 <div class="container-fluid header border-bottom">
 	<div class="container">
@@ -58,8 +55,8 @@ foreach ($cart as $pro) {
 									Tài khoản
 								</button>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-									<a class="dropdown-item" href="#">Đăng kí</a>
-									<a class="dropdown-item" href="	login.php">Đăng nhập</a>
+									<a class="dropdown-item" href="./registered.php">Đăng kí</a>
+									<a class="dropdown-item" href="./login.php">Đăng nhập</a>
 								</div>
 							</div>
 						<?php endif ?>

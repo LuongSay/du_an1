@@ -3,10 +3,7 @@ session_start();
 $cart = isset($_SESSION['CART']) == true ? $_SESSION['CART'] : [];
 $totalPrice = 0;
 require './commoms/utils.php';
-$sql = "SELECT * FROM users";
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-$user = $stmt->fetch();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,12 +44,12 @@ $user = $stmt->fetch();
 					<?php if (isset($_SESSION['login'])): ?>
 						<table>
 							<tr>Họ Tên</tr>
-							<tr><input class="form-control" type="text" name="name" disabled value="<?= $user['fullname']?>"></tr><br>
+							<tr><input class="form-control" type="text" name="name" disabled value="<?= $_SESSION['login']['fullname']?>"></tr><br>
 							<tr>Số điện thoại</tr>
-							<tr><input class="form-control" type="text" name="phone" disabled value="<?= $user['phone_number']?>"></tr><br>
+							<tr><input class="form-control" type="text" name="phone" disabled value="<?= $_SESSION['login']['phone_number']?>"></tr><br>
 							<tr>Email</tr>
 							<tr><input class="form-control" type="text" name="email" disabled 
-								value="<?= $user['email']?>"></tr><br>
+								value="<?= $_SESSION['login']['email'] ?>"></tr><br>
 								<tr>Ghi chú</tr>
 								<tr><textarea class="form-control" name="note"></textarea></tr>
 							</table>
@@ -104,7 +101,7 @@ $user = $stmt->fetch();
 													</a>
 												</span>
 												<!------>
-												<input class="text-center" style="width: 30%" type="text" name="quantity" value="<?= $item['quantity'] ?>">
+												<input class="text-center" style="width: 10%;background-color: rgba(red,green,blue,alpha);border: none;"  name="quantity" value="<?= $item['quantity'] ?>">
 												<!------>
 												<span>
 													<a href="./add/plus-cart.php?id=<?=$item['id']?>"
@@ -136,7 +133,7 @@ $user = $stmt->fetch();
 						</tbody>
 					</table>
 					<div class="row col-lg-12 d-flex justify-content-end">
-						<b>Tổng giá trị đơn hàng : <?= $totalPrice ?> VNĐ</b>
+						<b>Tổng giá trị đơn hàng :<span style="color: red"> <?= $totalPrice ?> VNĐ</span></b>
 					</div>
 					<input type="hidden" name="totalPrice" value="<?= $totalPrice ?>">
 					<div class="float-right pt-5">
@@ -228,5 +225,6 @@ $user = $stmt->fetch();
 		</script>
 	</body>
 	</html>
+	<!-- helo -->
 
 

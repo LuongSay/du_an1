@@ -47,6 +47,25 @@ if (isset($_GET['limit']) && !isset($_GET['cate_id'])) {
 	$stmt = $conn->prepare($sql);
 	$stmt->execute();
 	$products= $stmt->fetchAll();
+};
+// hiển thị sắp xếp + limit
+if (isset($_GET['limit']) && isset($_GET['order']) && !isset($_GET['cate_id'])) {
+	$limit =$_GET['limit'];
+	$order = $_GET['order'];
+	$sql = "SELECT * FROM products ORDER BY list_price ".$order." LIMIT ".$limit."";
+	$stmt = $conn->prepare($sql);
+	$stmt->execute();
+	$products= $stmt->fetchAll();
+};
+// hiển thị nếu vừa có có danh mục + sắp xếp + limit
+if (isset($_GET['limit']) && isset($_GET['cate_id']) && isset($_GET['order'])) {
+	$limit =$_GET['limit'];
+	$id = $_GET['cate_id'];
+	$order = $_GET['order'];
+	$sql = "SELECT * FROM products where cate_id = '$id' ORDER BY list_price ".$order." LIMIT ".$limit."";
+	$stmt = $conn->prepare($sql);
+	$stmt->execute();
+	$products= $stmt->fetchAll();
 }
 ?>
 
@@ -66,7 +85,6 @@ if (isset($_GET['limit']) && !isset($_GET['cate_id'])) {
 			</div>
 		</div>
 	<?php endforeach ?>
-
 </div>
 
 

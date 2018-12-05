@@ -24,6 +24,7 @@ const USER_ROLES = [
 	'moderator' => 300,
 	'member' => 1
 ];
+
 function checkLogin($role = 300){
 	global $siteUrl;
 	if(!isset($_SESSION['login']) 

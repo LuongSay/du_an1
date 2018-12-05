@@ -9,7 +9,7 @@ $pageNumber = isset($_GET['page']) == true ? $_GET['page'] : 1;
 $pageSize = 8;
 $offset = ($pageNumber-1)*$pageSize;
 $search = $_GET['search'];
-$sql = "select * from products where product_name like '%$search%'";
+$sql = "select * from products where product_name like '%$search%' OR list_price like '%$search%'";
 $stmt =$conn->prepare($sql);
 $stmt->execute();
 $searchp = $stmt->fetchAll();
@@ -38,7 +38,7 @@ $searchp2 = $stmt->fetch();
 	
 	
 	<?php if (!$searchp):?>
-		<h1 class="alert" style="text-align: center;">Không tìm thấy sản phẩm !!!</h1>
+		<h3 class="alert pt-5" style="text-align: center;">Không tìm thấy sản phẩm !!!</h3>
 		<?php else:?>
 			<div class="container pt-5 pb-5">
 				<div class="row">
